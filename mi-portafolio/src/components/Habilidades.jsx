@@ -4,6 +4,7 @@ function Habilidades({ habilidades }) {
       id="habilidades"
       className="section skills"
       aria-labelledby="skills-title"
+      tabIndex={-1}
     >
       <div className="container">
         <header className="skills__header">
@@ -21,7 +22,7 @@ function Habilidades({ habilidades }) {
           {habilidades.map((grupo) => (
             <article key={grupo.area} className="skills__group">
               <h3 className="skills__group-title">{grupo.area}</h3>
-              <ul className="skills__list">
+              <ul className="skills__list" role="list">
                 {grupo.items.map((item) => (
                   <li key={item}>
                     <span className="chip">{item}</span>

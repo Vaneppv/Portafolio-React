@@ -10,6 +10,7 @@ function Proyectos({ proyectos }) {
       id="proyectos"
       className="section projects"
       aria-labelledby="projects-title"
+      tabIndex={-1}
     >
       <div className="container">
         <header className="projects__header">
@@ -28,7 +29,7 @@ function Proyectos({ proyectos }) {
             Todavía no hay proyectos publicados.
           </p>
         ) : (
-          <ul className="projects__grid">
+          <ul className="projects__grid" role="list">
             {proyectos.map((proyecto) => {
               const [portada] = obtenerImagenes(proyecto)
 
@@ -62,6 +63,7 @@ function Proyectos({ proyectos }) {
                       <ul
                         className="project-card__tech"
                         aria-label={`Tecnologías de ${proyecto.titulo}`}
+                        role="list"
                       >
                         {(proyecto.tecnologias ?? []).map((tecnologia) => (
                           <li key={tecnologia}>

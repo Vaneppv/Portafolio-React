@@ -4,6 +4,7 @@ function Trayectoria({ trayectoria }) {
       id="trayectoria"
       className="section timeline-section"
       aria-labelledby="timeline-title"
+      tabIndex={-1}
     >
       <div className="container">
         <header className="timeline__header">
@@ -17,7 +18,7 @@ function Trayectoria({ trayectoria }) {
           </p>
         </header>
 
-        <ol className="timeline">
+        <ol className="timeline" role="list">
           {trayectoria.map((etapa) => (
             <li key={etapa.id} className="timeline__item">
               <article className="timeline__card">

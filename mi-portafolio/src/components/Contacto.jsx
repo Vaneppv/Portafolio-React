@@ -91,6 +91,7 @@ function Contacto({ contacto = {} }) {
       id="contacto"
       className="section contact"
       aria-labelledby="contact-title"
+      tabIndex={-1}
     >
       <div className="container">
         <div className="contact__panel">
@@ -106,7 +107,7 @@ function Contacto({ contacto = {} }) {
           </header>
 
           {medios.length > 0 ? (
-            <ul className="contact__grid">
+            <ul className="contact__grid" role="list">
               {medios.map((medio) => (
                 <li key={medio.id}>
                   <a

@@ -164,6 +164,7 @@ function ProyectoModal({ proyecto, onClose }) {
               <ul
                 className="project-modal__tech"
                 aria-label={`Tecnologías de ${proyecto.titulo}`}
+                role="list"
               >
                 {proyecto.tecnologias.map((tecnologia) => (
                   <li key={tecnologia}>

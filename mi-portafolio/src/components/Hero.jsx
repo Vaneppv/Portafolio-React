@@ -12,6 +12,7 @@ function Hero({ perfil }) {
       id="perfil"
       className="hero section"
       aria-labelledby="hero-title"
+      tabIndex={-1}
     >
       <div className="container hero__layout">
         <div className="hero__content">
@@ -59,7 +60,9 @@ function Hero({ perfil }) {
               <img
                 className="hero__image"
                 src={perfil.imagen}
-                alt={perfil.altImagen}
+                alt={
+                  perfil.altImagen || `Foto de perfil de ${perfil.nombre}`
+                }
                 width="200"
                 height="200"
                 loading="eager"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { obtenerIniciales } from '../utils/proyecto'
 
 const enlaces = [
@@ -11,17 +11,20 @@ const enlaces = [
 
 function Navbar({ perfil }) {
   const [menuAbierto, setMenuAbierto] = useState(false)
+  const toggleRef = useRef(null)
 
   useEffect(() => {
     function manejarTeclado(event) {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && menuAbierto) {
+        event.preventDefault()
         setMenuAbierto(false)
+        toggleRef.current?.focus()
       }
     }
 
     document.addEventListener('keydown', manejarTeclado)
     return () => document.removeEventListener('keydown', manejarTeclado)
-  }, [])
+  }, [menuAbierto])
 
   useEffect(() => {
     const media = window.matchMedia('(min-width: 901px)')
@@ -43,7 +46,12 @@ function Navbar({ perfil }) {
   return (
     <nav className="navbar" aria-label="Navegación principal">
       <div className="container navbar__inner">
-        <a className="navbar__brand" href="#perfil" onClick={cerrarMenu}>
+        <a
+          className="navbar__brand"
+          href="#perfil"
+          aria-label={`Ir al inicio del portafolio de ${perfil.nombre}`}
+          onClick={cerrarMenu}
+        >
           <span className="navbar__mark" aria-hidden="true">
             {obtenerIniciales(perfil.nombre)}
           </span>
@@ -51,6 +59,7 @@ function Navbar({ perfil }) {
         </a>
 
         <button
+          ref={toggleRef}
           type="button"
           className="navbar__toggle"
           aria-expanded={menuAbierto}
@@ -83,6 +92,7 @@ function Navbar({ perfil }) {
         <ul
           id="navbar-menu"
           className={`navbar__menu${menuAbierto ? ' is-open' : ''}`}
+          role="list"
         >
           {enlaces.map((enlace) => (
             <li key={enlace.href}>
