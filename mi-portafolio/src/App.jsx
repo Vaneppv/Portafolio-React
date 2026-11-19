@@ -1,4 +1,6 @@
 import './App.css'
+import Contacto from './components/Contacto'
+import Footer from './components/Footer'
 import Habilidades from './components/Habilidades'
 import Hero from './components/Hero'
 import Proyectos from './components/Proyectos'
@@ -6,7 +8,7 @@ import Trayectoria from './components/Trayectoria'
 import { portafolioData } from './data/portafolioData'
 
 function App() {
-  const { perfil, habilidades, trayectoria, proyectos } = portafolioData
+  const { perfil, habilidades, trayectoria, proyectos, contacto } = portafolioData
 
   return (
     <div className="app-shell">
@@ -15,7 +17,9 @@ function App() {
         <Habilidades habilidades={habilidades} />
         <Trayectoria trayectoria={trayectoria} />
         <Proyectos proyectos={proyectos} />
+        <Contacto contacto={contacto} />
       </main>
+      <Footer perfil={perfil} />
     </div>
   )
 }
