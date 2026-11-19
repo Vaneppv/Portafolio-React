@@ -69,6 +69,16 @@ function ProyectoModal({ proyecto, onClose }) {
 
   const imagenActual = imagenes[imagenActiva]
 
+  function mostrarAnterior() {
+    setImagenActiva(
+      (indice) => (indice - 1 + imagenes.length) % imagenes.length,
+    )
+  }
+
+  function mostrarSiguiente() {
+    setImagenActiva((indice) => (indice + 1) % imagenes.length)
+  }
+
   function manejarFondo(event) {
     if (event.target === event.currentTarget) {
       onClose()
@@ -106,18 +116,66 @@ function ProyectoModal({ proyecto, onClose }) {
         </button>
 
         <div className="project-modal__gallery">
-          {imagenActual ? (
-            <img
-              className="project-modal__image"
-              src={imagenActual.src}
-              alt={imagenActual.alt}
-              decoding="async"
-            />
-          ) : (
-            <div className="project-modal__gallery-fallback" aria-hidden="true">
-              {obtenerIniciales(proyecto.titulo)}
-            </div>
-          )}
+          <div className="project-modal__stage">
+            {imagenActual ? (
+              <img
+                className="project-modal__image"
+                src={imagenActual.src}
+                alt={imagenActual.alt}
+                decoding="async"
+              />
+            ) : (
+              <div
+                className="project-modal__gallery-fallback"
+                aria-hidden="true"
+              >
+                {obtenerIniciales(proyecto.titulo)}
+              </div>
+            )}
+
+            {imagenes.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className="project-modal__nav project-modal__nav--prev"
+                  onClick={mostrarAnterior}
+                  aria-label="Imagen anterior"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  className="project-modal__nav project-modal__nav--next"
+                  onClick={mostrarSiguiente}
+                  aria-label="Imagen siguiente"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </>
+            )}
+          </div>
 
           {imagenes.length > 1 && (
             <>

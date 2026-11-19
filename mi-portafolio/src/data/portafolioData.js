@@ -111,7 +111,7 @@ export const portafolioData = {
     },
     {
       id: 'methub',
-      titulo: 'MetHub — Explorador de la Colección del Met',
+      titulo: 'MetHub',
       descripcionCorta:
         'Explorador de la colección del MET con búsqueda, filtros y comparación de obras.',
       descripcionAmpliada:
