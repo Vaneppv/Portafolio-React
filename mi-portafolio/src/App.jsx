@@ -7,9 +7,12 @@ import Navbar from './components/Navbar'
 import Proyectos from './components/Proyectos'
 import Trayectoria from './components/Trayectoria'
 import { portafolioData } from './data/portafolioData'
+import { useDocumentMeta } from './hooks/useDocumentMeta'
 
 function App() {
   const { perfil, habilidades, trayectoria, proyectos, contacto } = portafolioData
+
+  useDocumentMeta(perfil)
 
   return (
     <div className="app-shell">
