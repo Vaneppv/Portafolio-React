@@ -5,7 +5,7 @@ export const portafolioData = {
     descripcion:
       'Ingeniera Civil en transición hacia el desarrollo de software. Combino mi base analítica y resolución de problemas estructurales con el desarrollo web moderno en React y Angular.',
     ubicacion: 'Maracaibo, Zulia, Venezuela',
-    imagen: '/img/foto-vanessa.jpg',
+    imagen: '/foto-vanessa.png',
     altImagen: 'Foto de perfil de Vanessa Pérez',
   },
   habilidades: [
