@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { resolverRutaPublica } from '../utils/assets'
 
 function actualizarMeta(atributo, valorAtributo, contenido) {
   if (!contenido) {
@@ -29,7 +30,7 @@ export function useDocumentMeta(perfil) {
     const altImagen =
       perfil.altImagen || `Foto de perfil de ${perfil.nombre}`
     const imagen = perfil.imagen
-      ? new URL(perfil.imagen, window.location.href).href
+      ? new URL(resolverRutaPublica(perfil.imagen), window.location.origin).href
       : ''
 
     document.title = titulo

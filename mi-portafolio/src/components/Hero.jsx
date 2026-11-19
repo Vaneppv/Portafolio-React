@@ -1,3 +1,5 @@
+import { resolverRutaPublica } from '../utils/assets'
+
 function Hero({ perfil }) {
   const iniciales = perfil.nombre
     .split(' ')
@@ -59,7 +61,7 @@ function Hero({ perfil }) {
             {perfil.imagen ? (
               <img
                 className="hero__image"
-                src={perfil.imagen}
+                src={resolverRutaPublica(perfil.imagen)}
                 alt={
                   perfil.altImagen || `Foto de perfil de ${perfil.nombre}`
                 }

@@ -1,3 +1,5 @@
+import { resolverRutaPublica } from './assets'
+
 export function obtenerImagenes(proyecto) {
   let imagenes = []
 
@@ -10,7 +12,7 @@ export function obtenerImagenes(proyecto) {
   return imagenes
     .filter((imagen) => Boolean(imagen?.src))
     .map((imagen) => ({
-      src: imagen.src,
+      src: resolverRutaPublica(imagen.src),
       alt: imagen.alt || `Captura del proyecto ${proyecto.titulo}`,
     }))
 }
