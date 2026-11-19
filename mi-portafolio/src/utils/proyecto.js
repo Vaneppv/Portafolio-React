@@ -14,3 +14,13 @@ export function obtenerImagenes(proyecto) {
       alt: imagen.alt || `Captura del proyecto ${proyecto.titulo}`,
     }))
 }
+
+export function obtenerIniciales(titulo) {
+  return titulo
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((parte) => parte[0])
+    .join('')
+    .toUpperCase()
+}

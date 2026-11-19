@@ -1,16 +1,10 @@
-import { obtenerImagenes } from '../utils/proyecto'
-
-function obtenerIniciales(titulo) {
-  return titulo
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((parte) => parte[0])
-    .join('')
-    .toUpperCase()
-}
+import { useState } from 'react'
+import ProyectoModal from './ProyectoModal'
+import { obtenerImagenes, obtenerIniciales } from '../utils/proyecto'
 
 function Proyectos({ proyectos }) {
+  const [proyectoActivo, setProyectoActivo] = useState(null)
+
   return (
     <section
       id="proyectos"
@@ -75,6 +69,17 @@ function Proyectos({ proyectos }) {
                           </li>
                         ))}
                       </ul>
+                      <div className="project-card__actions">
+                        <button
+                          type="button"
+                          className="btn btn--ghost"
+                          onClick={() => setProyectoActivo(proyecto)}
+                          aria-haspopup="dialog"
+                          aria-label={`Ver detalles de ${proyecto.titulo}`}
+                        >
+                          Ver detalles
+                        </button>
+                      </div>
                     </div>
                   </article>
                 </li>
@@ -83,6 +88,13 @@ function Proyectos({ proyectos }) {
           </ul>
         )}
       </div>
+
+      {proyectoActivo && (
+        <ProyectoModal
+          proyecto={proyectoActivo}
+          onClose={() => setProyectoActivo(null)}
+        />
+      )}
     </section>
   )
 }
