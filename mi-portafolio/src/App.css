@@ -181,3 +181,137 @@
     width: min(100%, 17rem);
   }
 }
+
+.skills {
+  border-block: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+
+.skills__header {
+  max-width: 46rem;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.skills__group {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.skills__group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+}
+
+.skills__group-title::before {
+  content: '';
+  width: 0.35rem;
+  height: 1.15rem;
+  flex: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skills__list .chip {
+  font-size: 0.78rem;
+}
+
+.timeline__header {
+  max-width: 46rem;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--border);
+}
+
+.timeline__item {
+  position: relative;
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  top: 1.4rem;
+  left: -1.9rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+.timeline__card {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline__period {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.timeline__title {
+  margin-top: 0.75rem;
+}
+
+.timeline__institution {
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.timeline__description {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .skills__group {
+    padding: 1.25rem;
+  }
+
+  .timeline {
+    padding-left: 1.25rem;
+  }
+
+  .timeline__item::before {
+    left: -1.65rem;
+  }
+
+  .timeline__card {
+    padding: 1.1rem 1.2rem;
+  }
+}
